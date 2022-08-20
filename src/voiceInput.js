@@ -62,7 +62,7 @@ function VoiceInput(props) {
 
     return (
         <div>
-            <img src={recording ? "mic.png" : "mute.png"} onClick={() => checkAndStartSpeech()} />
+            <img src={recording ? "mic.png" : "mute.png"} alt="mic" onClick={() => checkAndStartSpeech()} />
         </div>
     );
 }
