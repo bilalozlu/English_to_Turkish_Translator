@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 function VoiceInput(props) {
     const [micPermission, setMicPermission] = useState("");
+    const recognition = new window.webkitSpeechRecognition() || new window.SpeechRecognition();
 
     navigator.permissions.query(
         { name: 'microphone' }
@@ -13,11 +14,10 @@ function VoiceInput(props) {
         }
     });
 
-    const recognition = new window.webkitSpeechRecognition();
 
     const checkPermissionAndStartSpeech = () => {
         if (micPermission === "denied") {
-            alert("Please, give microphone permission to translate with voice")
+            alert("Please give microphone permission to translate with voice")
         }
         else {
             startSpeech();
