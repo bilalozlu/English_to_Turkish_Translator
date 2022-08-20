@@ -1,7 +1,9 @@
+import './App.css';
 import { useState } from 'react';
 
 function VoiceInput(props) {
     const [micPermission, setMicPermission] = useState("");
+    const [recording, setRecording] = useState(false);
     const recognition = new window.webkitSpeechRecognition() || new window.SpeechRecognition();
 
     navigator.permissions.query(
@@ -15,9 +17,12 @@ function VoiceInput(props) {
     });
 
 
-    const checkPermissionAndStartSpeech = () => {
+    const checkAndStartSpeech = () => {
         if (micPermission === "denied") {
             alert("Please give microphone permission to translate with voice")
+        }
+        else if (recording) {
+            stopSpeech();
         }
         else {
             startSpeech();
@@ -25,12 +30,19 @@ function VoiceInput(props) {
     };
 
     const startSpeech = () => {
+        recognition.continuous = true;
         recognition.interimResults = true;
         recognition.lang = 'en-US'
 
+        recognition.onstart = () => {
+            setRecording(true);
+        }
+
         recognition.onend = () => {
             recognition.stop();
+            setRecording(false);
         }
+        
         try {
             recognition.start();
             recognition.onresult = (event) => {
@@ -43,9 +55,14 @@ function VoiceInput(props) {
         }
     };
 
+    const stopSpeech = () => {
+        recognition.stop();
+        setRecording(false);
+    };
+
     return (
         <div>
-            <button onClick={() => checkPermissionAndStartSpeech()}>PLAY</button>
+            <img src={recording ? "mic.png" : "mute.png"} onClick={() => checkAndStartSpeech()} />
         </div>
     );
 }
