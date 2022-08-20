@@ -16,21 +16,26 @@ function App() {
       setOutputInEnglish("");
     }
     else {
-    async function resFunc() {
-      let res = await fetch("https://translate.argosopentech.com/translate", {
-        method: "POST",
-        body: JSON.stringify({
-          q: inputInTurkish,
-          source: "en",
-          target: "tr",
-        }),
-        headers: { "Content-Type": "application/json" }
-      });
-      res = await res.json();
-      setOutputInEnglish(res.translatedText);
+      try {
+        async function resFunc() {
+          let res = await fetch("https://translate.argosopentech.com/translate", {
+            method: "POST",
+            body: JSON.stringify({
+              q: inputInTurkish,
+              source: "en",
+              target: "tr",
+            }),
+            headers: { "Content-Type": "application/json" }
+          });
+          res = await res.json();
+          setOutputInEnglish(res.translatedText);
+        }
+        resFunc();
+      }
+      catch {
+        console.error("cannot get api result")
+      }
     }
-    resFunc();
-  }
   }, [inputInTurkish]);
 
 
