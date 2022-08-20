@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import InputBox from './inputBox';
 import OutputBox from './outputBox';
+import History from './history'
 import './App.css';
 
 function App() {
@@ -40,9 +41,19 @@ function App() {
 
 
   return (
-    <div className="App">
-      <InputBox enterInputText={handleInputText} />
-      <OutputBox outputText={outputInEnglish} />
+    <div className='App'>
+      <div className='title'>
+        <h2>Spaceship Mission (Turkish Translation)</h2>
+      </div>
+      <div className="body">
+        <InputBox enterInputText={handleInputText} />
+        <img src={"arrow.png"} className="arrowImg" alt="arrow" />
+        <OutputBox outputText={outputInEnglish} />
+      </div>
+      <div className='history'>
+        <h2>History</h2>
+        <History />
+      </div>
     </div>
   );
 }
