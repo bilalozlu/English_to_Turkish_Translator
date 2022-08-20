@@ -3,7 +3,7 @@ import './App.css';
 function OutputBox(props) {
     return (
         <div className="outputBox">
-            <textarea value={props.outputText} readonly></textarea >
+            <textarea value={props.outputText} readOnly></textarea >
         </div>
     );
 }

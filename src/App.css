@@ -1,58 +1,95 @@
 .App {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: white;
+}
+
+.body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
-@media only screen and (max-width: 1200px) {
-  .App {
-    flex-direction: column;
-  }
+.history {
+  color: white;
+  margin-top: 20px;
 }
 
 .inputBox {
   background-color: white;
-  border: 2px solid orange;
-  width: 40%;
-  height: 100px;
+  border: 1px solid orangered;
+  width: 40vw;
+  height: 25vh;
   display: flex;
 }
 
 .inputBox:focus-within {
-  border: 2px solid red;
+  border: 3px solid red;
 }
 
 .outputBox {
   background-color: white;
-  border: 2px solid blue;
-  width: 40%;
-  height: 100px;
+  border: 1px solid cyan;
+  width: 40vw;
+  height: 25vh;
   display: flex;
 }
 
 .outputBox:focus-within {
-  border: 2px solid navy;
+  border: 3px solid blue;
 }
 
 textarea {
-  width: 90%;
+  width: 95%;
+  margin: 5px;
   border : none;
   outline: none;
   overflow: auto;
   resize: none;
   caret-color: transparent;
+  font-family: inherit;
+  font-size: 20px;
 }
 
 textarea::-webkit-scrollbar {
   width: 0px;
 }
 
-
-img {
-  width: 20px;
+.micImg {
+  width: 30px;
+  margin: 5px;
   padding: 5px;
-  border: 1px solid green;
+  border: 1px solid orangered;
   border-radius: 50%;
+}
+
+.recording{
+  padding: 3px;
+  border: 3px solid red;
+}
+
+.arrowImg {
+  width: 30px;
+  margin: 10px;
+  color: red;
+}
+
+@media only screen and (max-width: 1200px) {
+  .body {
+    flex-direction: column;
+  }
+  .inputBox .outputBox{
+    width: 80vw;
+  }
+
+  .arrowImg {
+    transform: rotate(90deg);
+  }
 }
