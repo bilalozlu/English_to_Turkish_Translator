@@ -42,7 +42,6 @@ function App() {
   return (
     <div className="App">
       <InputBox enterInputText={handleInputText} />
- 
       <OutputBox outputText={outputInEnglish} />
     </div>
   );
