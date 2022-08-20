@@ -43,7 +43,6 @@ function App() {
     <div className="App">
       <InputBox enterInputText={handleInputText} />
       <div>
-        <img />
       </div>
       <OutputBox outputText={outputInEnglish} />
     </div>
