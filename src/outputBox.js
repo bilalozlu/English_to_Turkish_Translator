@@ -1,7 +1,9 @@
+import './App.css';
+
 function OutputBox(props) {
     return (
-        <div>
-            <input value={props.outputText} disabled></input>
+        <div className="outputBox">
+            <textarea value={props.outputText} readonly></textarea >
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import VoiceInput from './voiceInput';
+import './App.css';
 
 function InputBox(props) {
     const [input, setInput] = useState("");
@@ -10,8 +11,8 @@ function InputBox(props) {
     };
 
     return (
-        <div>
-            <input value={input} onChange={(e) => handleInputChange(e.target.value)}></input>
+        <div className='inputBox'>
+            <textarea className="inputAreaOfInputBox" value={input} onChange={(e) => handleInputChange(e.target.value)}></textarea >
             <VoiceInput inputChangeByVoice={handleInputChange} />
         </div>
     );

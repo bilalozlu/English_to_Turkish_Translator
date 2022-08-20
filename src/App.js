@@ -42,6 +42,9 @@ function App() {
   return (
     <div className="App">
       <InputBox enterInputText={handleInputText} />
+      <div>
+        <img />
+      </div>
       <OutputBox outputText={outputInEnglish} />
     </div>
   );
