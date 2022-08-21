@@ -1,20 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import InputBox from './inputBox';
 import OutputBox from './outputBox';
 import History from './history'
 import './App.css';
 
 function App() {
-  const [inputInTurkish, setInputInTurkish] = useState("");
-  const [outputInEnglish, setOutputInEnglish] = useState("");
+  const [inputInEnglish, setInputInEnglish] = useState("");
+  const [outputInTurkish, setOutputInTurkish] = useState("");
+  const [history, setHistory] = useState(localStorage.getItem("history"));
+
 
   const handleInputText = (text) => {
-    setInputInTurkish(text);
+    setInputInEnglish(text);
   };
 
-  useEffect(() => {
-    if (inputInTurkish === "" || inputInTurkish === null) {
-      setOutputInEnglish("");
+  const translate = () => {
+    if (inputInEnglish === "" || inputInEnglish === null) {
+      setOutputInTurkish("");
     }
     else {
       try {
@@ -22,14 +24,14 @@ function App() {
           let res = await fetch("https://translate.argosopentech.com/translate", {
             method: "POST",
             body: JSON.stringify({
-              q: inputInTurkish,
+              q: inputInEnglish,
               source: "en",
               target: "tr",
             }),
             headers: { "Content-Type": "application/json" }
           });
           res = await res.json();
-          setOutputInEnglish(res.translatedText);
+          setOutputInTurkish(res.translatedText);
         }
         resFunc();
       }
@@ -37,7 +39,16 @@ function App() {
         console.error("cannot get api result")
       }
     }
-  }, [inputInTurkish]);
+  };
+
+  useEffect(() => {
+    if (outputInTurkish !== "" && outputInTurkish !== null) {
+      let results = history ? JSON.parse(localStorage.getItem("history")) : [];
+      results.push(inputInEnglish + " : " + outputInTurkish);
+      localStorage.setItem("history", JSON.stringify(results));
+      setHistory(JSON.stringify(results));
+    }
+  }, [outputInTurkish]);
 
 
   return (
@@ -47,12 +58,12 @@ function App() {
       </div>
       <div className="body">
         <InputBox enterInputText={handleInputText} />
-        <img src={"arrow.png"} className="arrowImg" alt="arrow" />
-        <OutputBox outputText={outputInEnglish} />
+        <img src={"arrow.png"} className="arrowImg" alt="arrow" onClick={() => translate()} />
+        <OutputBox outputText={outputInTurkish} />
       </div>
       <div className='history'>
         <h2>History</h2>
-        <History />
+        <History translatedList={JSON.parse(history)}/>
       </div>
     </div>
   );

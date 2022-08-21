@@ -85,7 +85,11 @@ textarea::-webkit-scrollbar {
   .body {
     flex-direction: column;
   }
-  .inputBox .outputBox{
+  .inputBox {
+    width: 80vw;
+  }
+  
+  .outputBox{
     width: 80vw;
   }
 

@@ -2,8 +2,12 @@ import './App.css';
 
 function History(props) {
     return (
-        <div className="istory">
-            <textarea value="asdasdasd : asdasdasd" readOnly></textarea >
+        <div className="history">
+            {props.translatedList ? 
+                props.translatedList.map(a => 
+                <p key={a}>{a}</p>
+            )
+            : <p>You did not translate anything yet, try one please</p>}
         </div>
     );
 }
