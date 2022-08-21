@@ -48,7 +48,7 @@ function App() {
       localStorage.setItem("history", JSON.stringify(results));
       setHistory(JSON.stringify(results));
     }
-  }, [outputInTurkish]);
+  }, [outputInTurkish]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
   return (
