@@ -30,7 +30,7 @@ function VoiceInput(props) {
     };
 
     const startSpeech = () => {
-        recognition.continuous = true;
+        recognition.continuous = false;
         recognition.interimResults = true;
         recognition.lang = 'en-US'
 
