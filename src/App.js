@@ -44,7 +44,7 @@ function App() {
   useEffect(() => {
     if (outputInTurkish !== "" && outputInTurkish !== null) {
       let results = history ? JSON.parse(localStorage.getItem("history")) : [];
-      results.push(inputInEnglish + " : " + outputInTurkish);
+      results.unshift(inputInEnglish + " : " + outputInTurkish);
       localStorage.setItem("history", JSON.stringify(results));
       setHistory(JSON.stringify(results));
     }
