@@ -21,10 +21,10 @@
 .historyArea {
   overflow: scroll;
   margin: 5px;
-}
 
-.historyArea::-webkit-scrollbar {
-  width: 0;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .history {
@@ -58,26 +58,44 @@
 
 .inputBox {
   background-color: white;
-  border: 1.5px solid orangered;
-  width: 40vw;
+  border: 2px solid orangered;
+  width: 36vw;
   height: 25vh;
   display: flex;
+
+  &:focus-within {
+    border: 2px solid red;
+  }
 }
 
-.inputBox:focus-within {
-  border: 1.5px solid red;
+.translateButton {
+  margin: 10px;
+  border: 1px solid red;
+  border-radius: 5%;
+  background-color: black;
+  color: white;
+
+  &:hover {
+    background-color: orangered;
+  }
+
+  .arrowImg {
+    width: 20px;
+    margin: 5px;
+  }
 }
+
 
 .outputBox {
   background-color: white;
-  border: 1.5px solid cyan;
-  width: 40vw;
+  border: 2px solid cyan;
+  width: 36vw;
   height: 25vh;
   display: flex;
-}
 
-.outputBox:focus-within {
-  border: 1.5px solid darkturquoise;
+  &:focus-within {
+    border: 2px solid darkturquoise;
+  }
 }
 
 textarea {
@@ -90,10 +108,10 @@ textarea {
   caret-color: transparent;
   font-family: inherit;
   font-size: 20px;
-}
 
-textarea::-webkit-scrollbar {
-  width: 0px;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 
 .micImg {
@@ -107,12 +125,6 @@ textarea::-webkit-scrollbar {
 .recording {
   padding: 3px;
   border: 3px solid red;
-}
-
-.arrowImg {
-  width: 30px;
-  margin: 10px;
-  color: red;
 }
 
 @media only screen and (max-width: 1000px) {
