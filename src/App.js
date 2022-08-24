@@ -58,11 +58,14 @@ function App() {
       </div>
       <div className="body">
         <InputBox enterInputText={handleInputText} />
-        <img src={"arrow.png"} className="arrowImg" alt="arrow" onClick={() => translate()} />
+        <button className='translateButton' onClick={() => translate()}>
+          <img src={"arrow.png"} className="arrowImg" alt="arrow"/>
+          <p>Translate</p>
+        </button>
         <OutputBox outputText={outputInTurkish} />
       </div>
       <div className='historyArea'>
-        <History translatedList={JSON.parse(history)}/>
+        <History translatedList={JSON.parse(history)} />
       </div>
     </div>
   );
