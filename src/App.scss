@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 }
 
 .title {
@@ -17,39 +18,72 @@
   align-items: center;
 }
 
+.historyArea {
+  overflow: scroll;
+  margin: 5px;
+}
+
+.historyArea::-webkit-scrollbar {
+  width: 0;
+}
+
 .history {
   color: white;
   margin-top: 20px;
+  width: 80vw;
+  text-align: center;
+  h2 {
+    margin: 10px;
+  }
+
+  .historyToggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .toggleImg {
+      width: 20px;
+      margin: 12px 0px 8px 10px;
+
+      &.open {
+        transform: rotate(270deg);
+      }
+
+      &.closed {
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
 
 .inputBox {
   background-color: white;
-  border: 1px solid orangered;
+  border: 1.5px solid orangered;
   width: 40vw;
   height: 25vh;
   display: flex;
 }
 
 .inputBox:focus-within {
-  border: 3px solid red;
+  border: 1.5px solid red;
 }
 
 .outputBox {
   background-color: white;
-  border: 1px solid cyan;
+  border: 1.5px solid cyan;
   width: 40vw;
   height: 25vh;
   display: flex;
 }
 
 .outputBox:focus-within {
-  border: 3px solid blue;
+  border: 1.5px solid darkturquoise;
 }
 
 textarea {
   width: 95%;
   margin: 5px;
-  border : none;
+  border: none;
   outline: none;
   overflow: auto;
   resize: none;
@@ -70,7 +104,7 @@ textarea::-webkit-scrollbar {
   border-radius: 50%;
 }
 
-.recording{
+.recording {
   padding: 3px;
   border: 3px solid red;
 }
@@ -81,15 +115,16 @@ textarea::-webkit-scrollbar {
   color: red;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
   .body {
     flex-direction: column;
   }
+
   .inputBox {
     width: 80vw;
   }
-  
-  .outputBox{
+
+  .outputBox {
     width: 80vw;
   }
 

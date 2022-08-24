@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import InputBox from './inputBox';
 import OutputBox from './outputBox';
 import History from './history'
-import './App.css';
+import './App.scss';
 
 function App() {
   const [inputInEnglish, setInputInEnglish] = useState("");
@@ -61,8 +61,7 @@ function App() {
         <img src={"arrow.png"} className="arrowImg" alt="arrow" onClick={() => translate()} />
         <OutputBox outputText={outputInTurkish} />
       </div>
-      <div className='history'>
-        <h2>History</h2>
+      <div className='historyArea'>
         <History translatedList={JSON.parse(history)}/>
       </div>
     </div>
