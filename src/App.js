@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import InputBox from './inputBox';
+import TranslateButton from './translateButton';
 import OutputBox from './outputBox';
-import History from './history'
+import History from './history';
 import './App.scss';
 
 function App() {
@@ -58,10 +59,7 @@ function App() {
       </div>
       <div className="body">
         <InputBox enterInputText={handleInputText} />
-        <button className='translateButton' onClick={() => translate()}>
-          <img src={"arrow.png"} className="arrowImg" alt="arrow"/>
-          <p>Translate</p>
-        </button>
+        <TranslateButton action={translate}/>
         <OutputBox outputText={outputInTurkish} />
       </div>
       <div className='historyArea'>
