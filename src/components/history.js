@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import './history.scss';
 
 function History(props) {
@@ -12,15 +13,19 @@ function History(props) {
                     className={`toggleImg ${isHistoryOpen ? 'open' : 'closed'}`}
                     onClick={() => setIsHistoryOpen(!isHistoryOpen)} alt="history" />
             </div>
-            {!isHistoryOpen ? null : 
+            {!isHistoryOpen ? null :
                 props.translatedList ?
-                props.translatedList.map(a =>
-                    <p key={a}>{a}</p>
-                )
-                : <p>You did not translate anything yet, try one please</p>}
+                    props.translatedList.map(a =>
+                        <p key={a}>{a}</p>
+                    )
+                    : <p>You did not translate anything yet, try one please</p>}
 
         </div>
     );
+}
+
+History.propTypes = {
+    translatedList: PropTypes.array
 }
 
 export default History;

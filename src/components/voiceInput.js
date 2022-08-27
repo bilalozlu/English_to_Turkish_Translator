@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import './voiceInput.scss';
 
@@ -65,6 +66,10 @@ function VoiceInput(props) {
             <img src={recording ? "mic.png" : "mute.png"} className={`micImg ${recording && 'recording'}`} alt="mic" onClick={() => checkAndStartSpeech()} />
         </div>
     );
+}
+
+VoiceInput.propTypes = {
+    inputChangeByVoice: PropTypes.func
 }
 
 export default VoiceInput;

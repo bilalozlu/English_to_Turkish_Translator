@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import VoiceInput from './voiceInput';
 import './inputBox.scss';
 
@@ -16,6 +17,10 @@ function InputBox(props) {
             <VoiceInput inputChangeByVoice={handleInputChange} />
         </div>
     );
+}
+
+InputBox.propTypes = {
+    enterInputText: PropTypes.func
 }
 
 export default InputBox;

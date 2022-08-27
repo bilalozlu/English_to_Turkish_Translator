@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './outputBox.scss';
 
 function OutputBox(props) {
@@ -6,6 +7,10 @@ function OutputBox(props) {
             <textarea value={props.outputText} readOnly></textarea >
         </div>
     );
+}
+
+OutputBox.propTypes = {
+    outputText: PropTypes.string
 }
 
 export default OutputBox;
