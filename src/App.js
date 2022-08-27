@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import InputBox from './inputBox';
-import TranslateButton from './translateButton';
-import OutputBox from './outputBox';
-import History from './history';
+import InputBox from './components/inputBox';
+import TranslateButton from './components/translateButton';
+import OutputBox from './components/outputBox';
+import History from './components/history';
 import './App.scss';
 
 function App() {

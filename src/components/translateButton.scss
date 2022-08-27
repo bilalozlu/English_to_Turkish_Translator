@@ -1,0 +1,22 @@
+.translateButton {
+    margin: 10px;
+    border: 1px solid red;
+    border-radius: 5%;
+    background-color: black;
+    color: white;
+  
+    &:hover {
+      background-color: orangered;
+    }
+  
+    .arrowImg {
+      width: 20px;
+      margin: 5px;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .arrowImg {
+      transform: rotate(90deg);
+    }
+  }

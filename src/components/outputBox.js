@@ -1,4 +1,4 @@
-import './App.scss';
+import './outputBox.scss';
 
 function OutputBox(props) {
     return (

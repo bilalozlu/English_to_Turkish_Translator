@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.scss';
+import './history.scss';
 
 function History(props) {
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);

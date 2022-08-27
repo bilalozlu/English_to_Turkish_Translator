@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import VoiceInput from './voiceInput';
-import './App.scss';
+import './inputBox.scss';
 
 function InputBox(props) {
     const [input, setInput] = useState("");

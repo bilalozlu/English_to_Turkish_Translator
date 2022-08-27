@@ -1,0 +1,32 @@
+.inputBox {
+    background-color: white;
+    border: 2px solid orangered;
+    width: 36vw;
+    height: 25vh;
+    display: flex;
+  
+    &:focus-within {
+      border: 2px solid red;
+    }
+
+    textarea {
+      width: 95%;
+      margin: 5px;
+      border: none;
+      outline: none;
+      overflow: auto;
+      resize: none;
+      font-family: inherit;
+      font-size: 20px;
+    
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .inputBox {
+      width: 80vw;
+    }
+  }

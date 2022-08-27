@@ -1,5 +1,5 @@
-import './App.scss';
 import { useState } from 'react';
+import './voiceInput.scss';
 
 function VoiceInput(props) {
     const [micPermission, setMicPermission] = useState("");

@@ -1,4 +1,4 @@
-import './App.scss';
+import './translateButton.scss';
 
 function TranslateButton(props) {
     return (
