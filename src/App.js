@@ -8,6 +8,7 @@ import './App.scss';
 function App() {
   const [inputInEnglish, setInputInEnglish] = useState("");
   const [outputInTurkish, setOutputInTurkish] = useState("");
+  const [lastTranslation, setLastTranslation] = useState("");
   const [history, setHistory] = useState(localStorage.getItem("history"));
 
 
@@ -33,6 +34,7 @@ function App() {
           });
           res = await res.json();
           setOutputInTurkish(res.translatedText);
+          setLastTranslation(inputInEnglish + " : " + res.translatedText)
         }
         resFunc();
       }
@@ -43,13 +45,13 @@ function App() {
   };
 
   useEffect(() => {
-    if (outputInTurkish !== "" && outputInTurkish !== null) {
-      let results = history ? JSON.parse(localStorage.getItem("history")) : [];
-      results.unshift(inputInEnglish + " : " + outputInTurkish);
+    if (lastTranslation !== "" && lastTranslation !== null) {
+      let results = JSON.parse(localStorage.getItem("history")) || [];
+      results.unshift(lastTranslation);
       localStorage.setItem("history", JSON.stringify(results));
       setHistory(JSON.stringify(results));
     }
-  }, [outputInTurkish]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [lastTranslation]);
 
 
   return (

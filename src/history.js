@@ -3,6 +3,7 @@ import './App.scss';
 
 function History(props) {
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+
     return (
         <div className="history">
             <div className='historyToggle'>
