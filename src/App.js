@@ -61,7 +61,7 @@ function App() {
       </div>
       <div className="body">
         <InputBox enterInputText={handleInputText} />
-        <TranslateButton action={translate}/>
+        <TranslateButton action={translate} />
         <OutputBox outputText={outputInTurkish} />
       </div>
       <div className='historyArea'>

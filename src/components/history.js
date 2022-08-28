@@ -18,8 +18,8 @@ function History(props) {
                     props.translatedList.map(a =>
                         <p key={a}>{a}</p>
                     )
-                    : <p>You did not translate anything yet, try one please</p>}
-
+                    : <p>You did not translate anything yet, try one please</p>
+            }
         </div>
     );
 }
