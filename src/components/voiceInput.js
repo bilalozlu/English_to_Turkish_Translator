@@ -11,10 +11,6 @@ function VoiceInput(props) {
         { name: 'microphone' }
     ).then(function (permissionStatus) {
         setMicPermission(permissionStatus.state);
-
-        permissionStatus.onchange = function () {
-            setMicPermission(permissionStatus.state);
-        }
     });
 
 
@@ -43,7 +39,7 @@ function VoiceInput(props) {
             recognition.stop();
             setRecording(false);
         }
-        
+
         try {
             recognition.start();
             recognition.onresult = (event) => {
