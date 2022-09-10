@@ -57,7 +57,7 @@ function App() {
   return (
     <div className='App'>
       <div className='title'>
-        <h2>Spaceship Mission (Turkish Translation)</h2>
+        <h2>English to Turkish Translation</h2>
       </div>
       <div className="body">
         <InputBox enterInputText={handleInputText} />
