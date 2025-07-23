@@ -23,18 +23,10 @@ function App() {
     else {
       try {
         async function resFunc() {
-          let res = await fetch("https://translate.argosopentech.com/translate", {
-            method: "POST",
-            body: JSON.stringify({
-              q: inputInEnglish,
-              source: "en",
-              target: "tr",
-            }),
-            headers: { "Content-Type": "application/json" }
-          });
+          let res = await fetch('https://lingva.ml/api/v1/en/tr/' + inputInEnglish);
           res = await res.json();
-          setOutputInTurkish(res.translatedText);
-          setLastTranslation(inputInEnglish + " : " + res.translatedText)
+          setOutputInTurkish(res.translation);
+          setLastTranslation(inputInEnglish + " : " + res.translation)
         }
         resFunc();
       }
@@ -57,7 +49,7 @@ function App() {
   return (
     <div className='App'>
       <div className='title'>
-        <h2>Spaceship Mission (Turkish Translation)</h2>
+        <h2>English to Turkish Translation</h2>
       </div>
       <div className="body">
         <InputBox enterInputText={handleInputText} />
